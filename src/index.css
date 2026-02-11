@@ -2,95 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 228 30% 4%;
+    --foreground: 210 40% 92%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 228 25% 8%;
+    --card-foreground: 210 40% 92%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 228 25% 8%;
+    --popover-foreground: 210 40% 92%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 192 100% 50%;
+    --primary-foreground: 228 30% 4%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 270 80% 60%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 228 20% 14%;
+    --muted-foreground: 215 20% 55%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 192 100% 50%;
+    --accent-foreground: 228 30% 4%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 228 20% 16%;
+    --input: 228 20% 16%;
+    --ring: 192 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom space tokens */
+    --neon-cyan: 192 100% 50%;
+    --neon-purple: 270 80% 60%;
+    --neon-blue: 220 100% 60%;
+    --star-white: 0 0% 95%;
+    --space-deep: 228 30% 3%;
+    --space-surface: 228 25% 8%;
+    --space-elevated: 228 22% 12%;
+    --glow-cyan: 0 0 20px hsl(192 100% 50% / 0.4), 0 0 60px hsl(192 100% 50% / 0.15);
+    --glow-purple: 0 0 20px hsl(270 80% 60% / 0.4), 0 0 60px hsl(270 80% 60% / 0.15);
+    --gradient-nebula: linear-gradient(135deg, hsl(228 30% 4%) 0%, hsl(260 40% 12%) 40%, hsl(220 50% 10%) 70%, hsl(228 30% 4%) 100%);
+    --gradient-hero: linear-gradient(180deg, transparent 0%, hsl(228 30% 4% / 0.6) 100%);
+
+    --sidebar-background: 228 25% 8%;
+    --sidebar-foreground: 210 40% 92%;
+    --sidebar-primary: 192 100% 50%;
+    --sidebar-primary-foreground: 228 30% 4%;
+    --sidebar-accent: 228 22% 12%;
+    --sidebar-accent-foreground: 210 40% 92%;
+    --sidebar-border: 228 20% 16%;
+    --sidebar-ring: 192 100% 50%;
   }
 }
 
@@ -100,6 +64,135 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
+    overflow-x: hidden;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  ::selection {
+    background: hsl(192 100% 50% / 0.3);
+    color: hsl(0 0% 100%);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(228 30% 4%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(228 20% 20%);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(192 100% 50% / 0.5);
+  }
+}
+
+@layer components {
+  .glow-text {
+    text-shadow: 0 0 10px hsl(192 100% 50% / 0.5), 0 0 40px hsl(192 100% 50% / 0.2);
+  }
+
+  .glow-text-purple {
+    text-shadow: 0 0 10px hsl(270 80% 60% / 0.5), 0 0 40px hsl(270 80% 60% / 0.2);
+  }
+
+  .glow-border {
+    box-shadow: 0 0 15px hsl(192 100% 50% / 0.15), inset 0 0 15px hsl(192 100% 50% / 0.05);
+    border-color: hsl(192 100% 50% / 0.3);
+  }
+
+  .glow-border-purple {
+    box-shadow: 0 0 15px hsl(270 80% 60% / 0.15), inset 0 0 15px hsl(270 80% 60% / 0.05);
+    border-color: hsl(270 80% 60% / 0.3);
+  }
+
+  .btn-glow {
+    @apply relative overflow-hidden;
+    box-shadow: 0 0 15px hsl(192 100% 50% / 0.3), 0 0 45px hsl(192 100% 50% / 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .btn-glow:hover {
+    box-shadow: 0 0 25px hsl(192 100% 50% / 0.5), 0 0 80px hsl(192 100% 50% / 0.2);
+    transform: translateY(-2px);
+  }
+
+  .btn-glow-purple {
+    @apply relative overflow-hidden;
+    box-shadow: 0 0 15px hsl(270 80% 60% / 0.3), 0 0 45px hsl(270 80% 60% / 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .btn-glow-purple:hover {
+    box-shadow: 0 0 25px hsl(270 80% 60% / 0.5), 0 0 80px hsl(270 80% 60% / 0.2);
+    transform: translateY(-2px);
+  }
+
+  .card-space {
+    @apply bg-card border border-border rounded-lg;
+    background: linear-gradient(135deg, hsl(228 25% 8%) 0%, hsl(228 22% 10%) 100%);
+    transition: all 0.4s ease;
+  }
+
+  .card-space:hover {
+    border-color: hsl(192 100% 50% / 0.4);
+    box-shadow: 0 0 30px hsl(192 100% 50% / 0.1), 0 8px 32px hsl(228 30% 0% / 0.5);
+    transform: translateY(-4px);
+  }
+
+  .nebula-bg {
+    background: var(--gradient-nebula);
+  }
+
+  .section-divider {
+    @apply w-full h-px;
+    background: linear-gradient(90deg, transparent 0%, hsl(192 100% 50% / 0.3) 50%, transparent 100%);
+  }
+
+  .glass {
+    background: hsl(228 25% 8% / 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+}
+
+/* Star field animations */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes nebula-drift {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+  33% { transform: translate(30px, -20px) scale(1.05); opacity: 0.5; }
+  66% { transform: translate(-20px, 10px) scale(0.95); opacity: 0.35; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes slide-up-fade {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
