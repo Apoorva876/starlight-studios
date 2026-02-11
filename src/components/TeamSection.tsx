@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const team = [
-  { name: "Adithya Rao", role: "President", initials: "AR" },
+  { name: "Mahadesh", role: "President", initials: "M" },
   { name: "Priya Sharma", role: "Vice President", initials: "PS" },
   { name: "Karthik Hegde", role: "Technical Head", initials: "KH" },
   { name: "Sneha Kulkarni", role: "Event Coordinator", initials: "SK" },
