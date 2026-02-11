@@ -15,10 +15,17 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            {[Instagram, Twitter, Linkedin, Github].map((Icon, i) => (
+            {[
+              { Icon: Instagram, href: "https://www.instagram.com/sa_malnad/" },
+              { Icon: Twitter, href: "#" },
+              { Icon: Linkedin, href: "#" },
+              { Icon: Github, href: "#" },
+            ].map(({ Icon, href }, i) => (
               <a
                 key={i}
-                href="#"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 rounded-lg border border-border text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors"
               >
                 <Icon size={18} />
