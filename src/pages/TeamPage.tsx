@@ -1,17 +1,17 @@
 import StarField from "@/components/StarField";
 import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
+import TeamSection from "@/components/TeamSection";
 import Footer from "@/components/Footer";
 
-const Index = () => (
+const TeamPage = () => (
   <div className="relative min-h-screen bg-background overflow-hidden">
     <StarField />
     <Navbar />
-    <main>
-      <HeroSection />
+    <main className="pt-20">
+      <TeamSection />
     </main>
     <Footer />
   </div>
 );
 
-export default Index;
+export default TeamPage;
