@@ -1,11 +1,25 @@
 import { motion } from "framer-motion";
 import { Rocket, Users } from "lucide-react";
+import bgHome from "@/assets/bg-home.png";
 
 const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Animated background image */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        animate={{ scale: [1, 1.05, 1], rotate: [0, 0.5, 0] }}
+        transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <img
+          src={bgHome}
+          alt=""
+          className="w-full h-full object-cover opacity-60"
+        />
+      </motion.div>
+
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-[1]" />
 
       {/* Orbital rings */}
       <div className="absolute inset-0 flex items-center justify-center z-[1] pointer-events-none">
