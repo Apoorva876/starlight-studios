@@ -1,19 +1,22 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Events", href: "#events" },
-  { label: "Journey", href: "#timeline" },
-  { label: "Team", href: "#team" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Events", href: "/events" },
+  { label: "Journey", href: "/journey" },
+  { label: "Team", href: "/team" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -23,8 +26,8 @@ const Navbar = () => {
 
   const handleClick = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+    navigate(href);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -34,7 +37,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between py-4 px-4 lg:px-8">
-        <button onClick={() => handleClick("#home")} className="font-heading text-lg font-bold tracking-wider text-primary glow-text">
+        <button onClick={() => handleClick("/")} className="font-heading text-lg font-bold tracking-wider text-primary glow-text">
           SA · MCE
         </button>
 
@@ -44,7 +47,9 @@ const Navbar = () => {
             <li key={link.href}>
               <button
                 onClick={() => handleClick(link.href)}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300 tracking-wide"
+                className={`text-sm font-medium transition-colors duration-300 tracking-wide ${
+                  location.pathname === link.href ? "text-primary" : "text-muted-foreground hover:text-primary"
+                }`}
               >
                 {link.label}
               </button>
@@ -70,7 +75,9 @@ const Navbar = () => {
               <li key={link.href}>
                 <button
                   onClick={() => handleClick(link.href)}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300 tracking-wide"
+                  className={`text-sm font-medium transition-colors duration-300 tracking-wide ${
+                    location.pathname === link.href ? "text-primary" : "text-muted-foreground hover:text-primary"
+                  }`}
                 >
                   {link.label}
                 </button>
