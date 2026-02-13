@@ -1,6 +1,30 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+import mownithImg from "@/assets/alumni/mownith.png";
+import akashImg from "@/assets/alumni/akash.png";
+import sudhirImg from "@/assets/alumni/sudhir.png";
+import shamanthImg from "@/assets/alumni/shamanth.png";
+import sanjayImg from "@/assets/alumni/sanjay.png";
+import dimpalImg from "@/assets/alumni/dimpal.png";
+import mahathiImg from "@/assets/alumni/mahathi.png";
+import prajwalImg from "@/assets/alumni/prajwal.png";
+import kushiImg from "@/assets/alumni/kushi.png";
+import chayankImg from "@/assets/alumni/chayank.png";
+
+const photoMap: Record<string, string> = {
+  "Mownith H S": mownithImg,
+  "Akash G S": akashImg,
+  "Sudhir G": sudhirImg,
+  "Shamanth R S": shamanthImg,
+  "Sanjay H L": sanjayImg,
+  "L Dimpal": dimpalImg,
+  "Mahathi Bhat A N": mahathiImg,
+  "Prajwal U": prajwalImg,
+  "Kushi G A": kushiImg,
+  "Chayank U": chayankImg,
+};
+
 const alumniData = [
   {
     batch: "Batch - 2024",
@@ -90,10 +114,14 @@ const AlumniSection = () => {
                     key={name}
                     className="card-space p-4 rounded-xl border border-border text-center"
                   >
-                    <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="text-primary font-heading text-lg font-bold">
-                        {name.charAt(0)}
-                      </span>
+                    <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center">
+                      {photoMap[name] ? (
+                        <img src={photoMap[name]} alt={name} className="w-full h-full object-cover" />
+                      ) : (
+                        <span className="text-primary font-heading text-lg font-bold">
+                          {name.charAt(0)}
+                        </span>
+                      )}
                     </div>
                     <p className="text-sm font-medium text-foreground">{name}</p>
                   </div>
