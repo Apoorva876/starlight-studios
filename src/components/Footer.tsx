@@ -1,4 +1,4 @@
-import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Github, Instagram, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -17,7 +17,6 @@ const Footer = () => {
           <div className="flex items-center gap-4">
             {[
               { Icon: Instagram, href: "https://www.instagram.com/sa_malnad?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" },
-              { Icon: Twitter, href: "#" },
               { Icon: Linkedin, href: "#" },
               { Icon: Github, href: "#" },
             ].map(({ Icon, href }, i) => (

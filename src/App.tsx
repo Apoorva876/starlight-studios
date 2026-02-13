@@ -9,6 +9,8 @@ import EventsPage from "./pages/EventsPage";
 import TimelinePage from "./pages/TimelinePage";
 import TeamPage from "./pages/TeamPage";
 import GalleryPage from "./pages/GalleryPage";
+import AlumniPage from "./pages/AlumniPage";
+import ReportsPage from "./pages/ReportsPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
@@ -27,6 +29,8 @@ const App = () => (
           <Route path="/journey" element={<TimelinePage />} />
           <Route path="/team" element={<TeamPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/alumni" element={<AlumniPage />} />
+          <Route path="/reports" element={<ReportsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
