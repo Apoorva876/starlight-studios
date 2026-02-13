@@ -10,6 +10,8 @@ const navLinks = [
   { label: "Journey", href: "/journey" },
   { label: "Team", href: "/team" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Alumni Wing", href: "/alumni" },
+  { label: "Reports", href: "/reports" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -40,7 +42,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between py-4 px-4 lg:px-8">
         <button onClick={() => handleClick("/")} className="flex items-center gap-2 font-heading text-lg font-bold tracking-wider text-primary glow-text">
           <img src={clubLogo} alt="SA Logo" className="w-8 h-8 object-contain" />
-          SA · MCE
+          Science Association
         </button>
 
         {/* Desktop */}

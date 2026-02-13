@@ -1,48 +1,62 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Code, Cpu, Mic, Trophy, Rocket } from "lucide-react";
+import { Wrench, Mic, Award, FlaskConical, Telescope, Gamepad2, BookOpen, Users } from "lucide-react";
 
 const events = [
   {
-    icon: Code,
-    category: "Hackathons",
-    title: "CodeNova",
-    desc: "24-hour national-level hackathon challenging teams to build innovative solutions.",
+    icon: Wrench,
+    category: "Technical",
+    title: "OTH",
+    desc: "Technical hardware projects & innovation challenge.",
     color: "primary" as const,
-  },
-  {
-    icon: Cpu,
-    category: "Workshops",
-    title: "TechForge",
-    desc: "Hands-on workshops on AI, IoT, robotics, and emerging technologies.",
-    color: "secondary" as const,
   },
   {
     icon: Mic,
-    category: "Technical Talks",
-    title: "InnoSpeak",
-    desc: "Industry experts and researchers share cutting-edge insights and breakthroughs.",
-    color: "primary" as const,
-  },
-  {
-    icon: Trophy,
-    category: "Competitions",
-    title: "BrainStorm",
-    desc: "Inter-college competitions in coding, circuit design, and scientific reasoning.",
+    category: "Talks",
+    title: "SPEC Talk",
+    desc: "Invited talks on cutting-edge science & technology.",
     color: "secondary" as const,
   },
   {
-    icon: Rocket,
-    category: "Space & Innovation",
-    title: "CosmicLab",
-    desc: "Space tech, astronomy nights, rocket model building, and astrophysics seminars.",
+    icon: Award,
+    category: "Competition",
+    title: "Smart",
+    desc: "Interschool science & talent competition.",
     color: "primary" as const,
   },
   {
-    icon: Code,
-    category: "Workshops",
-    title: "DevSprint",
-    desc: "Full-stack development bootcamp with real-world project deployment.",
+    icon: FlaskConical,
+    category: "Exhibition",
+    title: "Science Expo",
+    desc: "A hands-on science exhibition showcasing school & college projects.",
+    color: "secondary" as const,
+  },
+  {
+    icon: Telescope,
+    category: "Astronomy",
+    title: "Sky Watch",
+    desc: "Stargazing night with telescopes to observe celestial bodies.",
+    color: "primary" as const,
+  },
+  {
+    icon: Gamepad2,
+    category: "Fun",
+    title: "Gest Play",
+    desc: "Virtual racing simulation competition in driving simulators.",
+    color: "secondary" as const,
+  },
+  {
+    icon: BookOpen,
+    category: "Records",
+    title: "Malnad Book of Records",
+    desc: "Showcase your extraordinary talents through record-breaking attempts.",
+    color: "primary" as const,
+  },
+  {
+    icon: Users,
+    category: "Inter Branch",
+    title: "Inter Branch Events",
+    desc: "Fun competitions between academic branches within the college.",
     color: "secondary" as const,
   },
 ];
@@ -63,7 +77,7 @@ const EventsSection = () => {
         >
           <p className="text-primary font-heading text-xs tracking-[0.3em] uppercase mb-4">Our Events</p>
           <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground">
-            Flagship <span className="text-primary glow-text">Experiences</span>
+            <span className="text-primary glow-text">SCIENTIA</span>
           </h2>
         </motion.div>
 

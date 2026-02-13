@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Rocket, Users } from "lucide-react";
 import bgHome from "@/assets/bg-home.png";
+import saLogoWhite from "@/assets/sa-logo-white.png";
 
 const HeroSection = () => {
   return (
@@ -34,6 +35,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
+          <img src={saLogoWhite} alt="Science Association Logo" className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 object-contain" />
           <p className="text-primary font-body text-sm md:text-base tracking-[0.3em] uppercase mb-6 glow-text">
             Malnad College of Engineering, Hassan
           </p>
