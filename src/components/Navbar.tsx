@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import clubLogo from "@/assets/club-logo.png";
+import saLogo from "@/assets/sa-logo-white.png";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -41,7 +41,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between py-4 px-4 lg:px-8">
         <button onClick={() => handleClick("/")} className="flex items-center gap-2 font-heading text-lg font-bold tracking-wider text-primary glow-text">
-          <img src={clubLogo} alt="SA Logo" className="w-8 h-8 object-contain" />
+          <img src={saLogo} alt="SA Logo" className="w-8 h-8 object-contain" />
           Science Association
         </button>
 
