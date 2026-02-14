@@ -2,12 +2,12 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const milestones = [
-  { year: "2008", title: "Club Founded", desc: "Science Association established at Malnad College of Engineering." },
-  { year: "2012", title: "First National Event", desc: "Hosted our first inter-college technical symposium with 500+ participants." },
+  { year: "2015", title: "Club Founded", desc: "Science Association established at Malnad College of Engineering." },
+  { year: "2012", title: "First Scientia Event", desc: "Hosted our first inter-college technical symposium with 500+ participants." },
   { year: "2015", title: "Research Wing", desc: "Launched dedicated research wing with student-led projects and publications." },
   { year: "2018", title: "National Recognition", desc: "Won Best Technical Club award at a national-level tech fest." },
-  { year: "2021", title: "Digital Transformation", desc: "Pivoted to hybrid events, reaching 2000+ participants across India." },
-  { year: "2024", title: "Innovation Hub", desc: "Opened on-campus innovation lab for rapid prototyping and maker culture." },
+  { year: "2024", title: "MBR", desc: "Introduced new event named 'Malnad Book Of Records'" },
+  { year: "2025", title: "A New Milestone", desc: "Gramnd success of SCIENTIA with huge crowd of 500+ participants" },
 ];
 
 const TimelineSection = () => {
