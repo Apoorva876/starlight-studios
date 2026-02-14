@@ -284,6 +284,28 @@ const StarField = () => {
       });
     };
 
+    // Define 9 planets with orbital paths
+    const planets = [
+      // Mercury - small, fast orbit
+      { cx: 0.15, cy: 0.12, orbitX: 40, orbitY: 20, speed: 0.8, radius: 6, base: "hsl(35, 25%, 50%)", glow: "hsla(35, 30%, 55%, 0.08)", glowSize: 8, shadow: 0.4 },
+      // Venus - golden, medium
+      { cx: 0.88, cy: 0.1, orbitX: 30, orbitY: 35, speed: 0.5, radius: 10, base: "hsl(45, 60%, 55%)", glow: "hsla(45, 70%, 60%, 0.1)", glowSize: 14, shadow: 0.3 },
+      // Mars - red tint
+      { cx: 0.08, cy: 0.32, orbitX: 50, orbitY: 25, speed: 0.4, radius: 9, base: "hsl(15, 55%, 42%)", glow: "hsla(15, 60%, 50%, 0.1)", glowSize: 12, shadow: 0.5 },
+      // Jupiter - large, with bands
+      { cx: 0.92, cy: 0.38, orbitX: 35, orbitY: 45, speed: 0.2, radius: 22, base: "hsl(30, 45%, 48%)", glow: "hsla(30, 50%, 55%, 0.12)", glowSize: 28, shadow: 0.3 },
+      // Saturn - rings
+      { cx: 0.1, cy: 0.55, orbitX: 45, orbitY: 30, speed: 0.15, radius: 18, base: "hsl(42, 40%, 52%)", glow: "hsla(42, 50%, 58%, 0.1)", glowSize: 22, shadow: 0.35, rings: { color: "hsla(40, 40%, 65%, 0.25)", width: 2, tilt: 0.3 } },
+      // Uranus - icy blue
+      { cx: 0.85, cy: 0.62, orbitX: 30, orbitY: 40, speed: 0.12, radius: 14, base: "hsl(185, 50%, 55%)", glow: "hsla(185, 60%, 60%, 0.1)", glowSize: 18, shadow: 0.4, rings: { color: "hsla(185, 40%, 60%, 0.15)", width: 1, tilt: 0.8 } },
+      // Neptune - deep blue
+      { cx: 0.2, cy: 0.75, orbitX: 55, orbitY: 35, speed: 0.1, radius: 13, base: "hsl(220, 60%, 45%)", glow: "hsla(220, 70%, 55%, 0.1)", glowSize: 16, shadow: 0.5 },
+      // Pluto - tiny, slow
+      { cx: 0.75, cy: 0.82, orbitX: 60, orbitY: 20, speed: 0.06, radius: 5, base: "hsl(25, 20%, 45%)", glow: "hsla(25, 25%, 50%, 0.06)", glowSize: 6, shadow: 0.6 },
+      // Exoplanet - purple, mysterious
+      { cx: 0.5, cy: 0.92, orbitX: 40, orbitY: 50, speed: 0.08, radius: 11, base: "hsl(280, 40%, 45%)", glow: "hsla(280, 50%, 55%, 0.1)", glowSize: 15, shadow: 0.4 },
+    ];
+
     let time = 0;
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -291,33 +313,27 @@ const StarField = () => {
       // Nebulae
       drawNebulae(time);
 
-      // Galaxies (static positions, slow rotation)
+      // Galaxies (slow rotation)
       drawGalaxy(canvas.width * 0.12, canvas.height * 0.08, 100, time * 0.1, 260);
       drawGalaxy(canvas.width * 0.88, canvas.height * 0.55, 70, -time * 0.08, 200);
       if (canvas.height > 2000) {
         drawGalaxy(canvas.width * 0.3, canvas.height * 0.72, 55, time * 0.06, 290);
       }
 
-      // Sun (top right area, subtle)
+      // Sun with pulsating corona
       drawSun(canvas.width * 0.92, canvas.height * 0.04, 18, time);
 
-      // Earth (hero section area)
-      drawEarth(canvas.width * 0.82, canvas.height * 0.18, 28, time);
+      // Earth with continents
+      const earthX = canvas.width * 0.82 + Math.sin(time * 0.3) * 15;
+      const earthY = canvas.height * 0.18 + Math.cos(time * 0.2) * 10;
+      drawEarth(earthX, earthY, 28, time);
 
-      // Distant planet with rings
-      drawPlanet(
-        canvas.width * 0.08, canvas.height * 0.42, 14,
-        "hsl(30, 50%, 45%)", "hsla(30, 60%, 50%, 0.1)", 20,
-        0.3,
-        { color: "hsla(40, 40%, 60%, 0.2)", width: 1.5, tilt: 0.35 }
-      );
-
-      // Small distant planet
-      drawPlanet(
-        canvas.width * 0.65, canvas.height * 0.88, 10,
-        "hsl(340, 30%, 40%)", "hsla(340, 50%, 50%, 0.08)", 12,
-        0.5
-      );
+      // Draw all 9 orbiting planets
+      planets.forEach((p, i) => {
+        const px = canvas.width * p.cx + Math.sin(time * p.speed + i * 1.2) * p.orbitX;
+        const py = canvas.height * p.cy + Math.cos(time * p.speed * 0.7 + i * 0.9) * p.orbitY;
+        drawPlanet(px, py, p.radius, p.base, p.glow, p.glowSize, p.shadow, p.rings);
+      });
 
       // Stars
       stars.forEach((star) => {
