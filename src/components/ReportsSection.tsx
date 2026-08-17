@@ -1,9 +1,9 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { FileText } from "lucide-react";
+import { FileText, Download } from "lucide-react";
 
 const reports = [
-  { title: "NENAPINA DONI - Alumni meet 2023", link: "#" },
+  { title: "SA Club Report", link: "#" },
   { title: "NENAPINA DONI - Alumni meet 2023", link: "#" },
 ];
 
@@ -29,21 +29,31 @@ const ReportsSection = () => {
 
         <div className="max-w-3xl mx-auto space-y-4">
           {reports.map((report, i) => (
-            <motion.a
+            <motion.div
               key={i}
-              href={report.link}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex items-center gap-4 p-4 rounded-xl border border-border card-space hover:border-primary/30 transition-colors group"
+              className="flex items-center justify-between gap-4 p-4 rounded-xl border border-border card-space hover:border-primary/30 transition-colors group"
             >
-              <div className="p-3 rounded-lg bg-primary/10 text-primary">
-                <FileText size={20} />
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-lg bg-primary/10 text-primary">
+                  <FileText size={20} />
+                </div>
+                <span className="text-foreground font-medium group-hover:text-primary transition-colors">
+                  {report.title}
+                </span>
               </div>
-              <span className="text-foreground font-medium group-hover:text-primary transition-colors">
-                {report.title}
-              </span>
-            </motion.a>
+              <a
+                href={report.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-secondary/10 text-secondary hover:bg-secondary hover:text-secondary-foreground transition-colors"
+                title="Download PDF"
+              >
+                <Download size={20} />
+              </a>
+            </motion.div>
           ))}
         </div>
       </div>

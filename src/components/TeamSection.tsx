@@ -2,18 +2,36 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 import tarunImg from "@/assets/alumni/tarun.jpg";
-// import prathamImg from "@/assets/1st years/pratham.png";
-// import omairImg from "@/assets/1st years/omair.png";
-// import monishImg from "@/assets/1st years/monish.png";
-// import krupaImg from "@/assets/1st years/krupa.png";
-// import amruthaHNImg from "@/assets/1st years/amrutha.png";
-// import anaghaImg from "@/assets/1st years/anagha.png";
-// import thanyaImg from "@/assets/1st years/thanya.png";
-// import nireekshaImg from "@/assets/1st years/nireeksha.png";
-// import incharaImg from "@/assets/1st years/inchara.png";
-// import akankshaImg from "@/assets/1st years/akanksha.png";
-// import prarthanaImg from "@/assets/1st years/prarthana.png";
-// import srirakshaImg from "@/assets/1st years/sriraksha.png";
+import prathamImg from "@/assets/alumni/pratham.jpg";
+import omairImg from "@/assets/alumni/omair.jpg";
+import monishImg from "@/assets/alumni/monish.jpg";
+import krupaImg from "@/assets/alumni/krupa.jpg";
+import amruthaHNImg from "@/assets/alumni/amrutha.jpg";
+import anaghaImg from "@/assets/alumni/anagha.jpg";
+import thanyaImg from "@/assets/alumni/thanya.jpg";
+import nireekshaImg from "@/assets/alumni/nireeksha.jpg";
+import incharaImg from "@/assets/alumni/inchara.jpg";
+import akankshaImg from "@/assets/alumni/akanksha.jpg";
+import prarthanaImg from "@/assets/alumni/prarthana.jpg";
+import srirakshaImg from "@/assets/alumni/sriraksha.jpg";
+import MahadeshImg from "@/assets/alumni/Mahadesh.png";
+import ImpanaImg from "@/assets/alumni/Impana.png";
+import ManojImg from "@/assets/alumni/Manoj.png";
+import SinchanaImg from "@/assets/alumni/Sinchana.png";
+import AbhishekImg from "@/assets/alumni/Abhishek.png";
+import UllasImg from "@/assets/alumni/Ullas.png";
+import JanapriyaImg from "@/assets/alumni/Janapriya.png";
+import AnkithaImg from "@/assets/alumni/Ankitha.png";
+import TrupthiImg from "@/assets/alumni/Trupthi.png";
+import bhuvanImg from "@/assets/alumni/bhuvan.jpg";
+import kushalImg from "@/assets/alumni/kushal.jpg";
+import amruthImg from "@/assets/alumni/amruth.jpg";
+import phianImg from "@/assets/alumni/phian.jpg";
+import rahulImg from "@/assets/alumni/rahul.jpg";
+import amrutha2Img from "@/assets/alumni/amrutha2.jpg";
+import chaithanyaImg from "@/assets/alumni/chaithanya.jpg";
+import ApoorvaImg from "@/assets/alumni/apoorva.jpeg"
+
 
 interface TeamMember {
   name: string;
@@ -24,69 +42,74 @@ interface TeamMember {
 
 /* ✅ TEAM DATA */
 const team: TeamMember[] = [
-  { name: "Mahadesh L M", role: "President", initials: "ML", year: "4th Year" },
-  { name: "Impana D", role: "General Secretary", initials: "ID", year: "4th Year" },
-  { name: "Manoj S", role: "Vice President", initials: "MS", year: "4th Year" },
-  { name: "Sinchana M L", role: "Joint Secretary", initials: "SM", year: "4th Year" },
-  { name: "Abhishek Gowda B P", role: "Event Director", initials: "AG", year: "4th Year" },
-  { name: "Ullas G", role: "Treasurer", initials: "UG", year: "4th Year" },
-  { name: "Mohammed Haris", role: "Sponsorship Head", initials: "MH", year: "4th Year" },
-  { name: "Janapriya", role: "Promotional Head", initials: "J", year: "4th Year" },
-  { name: "Ankitha Shetty P", role: "Creative Head", initials: "AS", year: "4th Year" },
-  { name: "Trupthi M", role: "Event Coordinator & Inventory Manager", initials: "TM", year: "4th Year" },
-  { name: "Dhanyashree P", role: "Research Head", initials: "DP", year: "4th Year" },
-  { name: "Prakyath Bidappa C K", role: "Social Media Manager", initials: "PB", year: "4th Year" },
+  
 
-  { name: "Poorab", role: "Co-Treasurer", initials: "P", year: "3rd Year" },
-  { name: "Bhuvan", role: "Technical Head", initials: "B", year: "3rd Year" },
-  { name: "Ullas Gowda J S", role: "Associate Technical Head", initials: "UG", year: "3rd Year" },
-  { name: "Sinchana Prakash", role: "Associate Creative Head", initials: "SP", year: "3rd Year" },
-  { name: "Sharanya S", role: "Associate Promotional Head", initials: "SS", year: "3rd Year" },
-  { name: "Niranjan K", role: "Public Relations Officer (PRO)", initials: "NK", year: "3rd Year" },
-  { name: "Yashwanth", role: "Human Resource Manager", initials: "Y", year: "3rd Year" },
+  { name: "Poorab", role: "President", initials: "P", year: "4th Year" },
+  { name: "Bhuvan", role: "General Secretary , Treasurer", initials: "B", year: "4th Year" },
+  { name: "Ullas Gowda J S", role: "Vice president", initials: "UG", year: "4th Year" },
+  { name: "Sinchana Prakash", role: "Creative and Promotinal Head", initials: "SP", year: "4th Year" },
+  { name: "Sharanya S", role: "Event Director", initials: "SS", year: "4th Year" },
+  { name: "Niranjan K", role: "Event Co-ordinator", initials: "NK", year: "4th Year" },
+  { name: "Yashwanth", role: "Inventory manager", initials: "Y", year: "4th Year"},
 
-  { name: "Kushal Gowda SP", initials: "KG", year: "2nd Year" },
-  { name: "Amruth R L", initials: "AR", year: "2nd Year" },
-  { name: "Ghanavi M S", initials: "GM", year: "2nd Year" },
-  { name: "Rahul Kothwal", initials: "RK", year: "2nd Year" },
-  { name: "Chethana D", initials: "CD", year: "2nd Year" },
-  { name: "Chirag S Karle", initials: "CSK", year: "2nd Year" },
-  { name: "Mohammed Rihan Wahid", initials: "MRW", year: "2nd Year" },
-  { name: "Apoorva H U", initials: "AHU", year: "2nd Year" },
-  { name: "Chaithanya", initials: "C", year: "2nd Year" },
-  { name: "Amrutha J S", initials: "AJS", year: "2nd Year" },
-  { name: "Kaphianthailiu Kamson", initials: "KK", year: "2nd Year" },
-
-  { name: "Tarun T R", initials: "TR", year: "1st Year" },
-  { name: "M Pratham Gowda", initials: "MPG", year: "1st Year" },
-  { name: "Omair Hamza Abdul Hameed", initials: "OH", year: "1st Year" },
-  { name: "Monish D S", initials: "MD", year: "1st Year" },
-  { name: "Krupa Sinchana C", initials: "KC", year: "1st Year" },
-  { name: "Amrutha H N", initials: "AHN", year: "1st Year" },
-  { name: "S Anagha", initials: "SA", year: "1st Year" },
-  { name: "Thanya Gowda", initials: "TG", year: "1st Year" },
-  { name: "Nireeksha H N", initials: "NH", year: "1st Year" },
-  { name: "Inchara Praveen Shetty", initials: "IPS", year: "1st Year" },
-  { name: "Akanksha", initials: "AK", year: "1st Year" },
-  { name: "Prarthana K M", initials: "PKM", year: "1st Year" },
-  { name: "Sriraksha G Kumar", initials: "SGK", year: "1st Year" },
+  { name: "Kushal Gowda SP",role:"Technical head" ,initials: "KG", year: "3rd Year" },
+  { name: "Amruth R L", role:"Associate event Ddirector",initials: "AR", year: "3rd Year" },
+  { name: "Ghanavi M S",role:"Co-Treasurer", initials: "GM", year: "3rd Year" },
+  { name: "Rahul Kothwal", role:"Research head", initials: "RK", year: "3rd Year" },
+  { name: "Chethana D", role:"Editorial head",initials: "CD", year: "3rd Year" },
+  { name: "Chirag S Karle",role:"Social media manager", initials: "CSK", year: "3rd Year" },
+  { name: "Mohammed Rihan Wahid",role:"Associate social media manager ", initials: "MRW", year: "3rd Year" },
+  { name: "Apoorva H U",role:"Public relation officer", initials: "AHU", year: "3rd Year" },
+  { name: "Chaithanya", role:"Associate technical head",initials: "C", year: "3rd Year" },
+  { name: "Amrutha J S" ,role:"Human resource", initials: "AJS", year: "3rd Year" },
+  
+  { name: "Tarun T R", initials: "TR", year: "2nd Year" },
+  { name: "M Pratham Gowda", initials: "MPG", year: "2nd Year" },
+  { name: "Omair Hamza Abdul Hameed", initials: "OH", year: "2nd Year" },
+  { name: "Monish D S", initials: "MD", year: "2nd Year" },
+  { name: "Krupa Sinchana C", initials: "KC", year: "2nd Year" },
+  { name: "Amrutha H N", initials: "AHN", year: "2nd Year" },
+  { name: "S Anagha", initials: "SA", year: "2nd Year" },
+  { name: "Thanya Gowda", initials: "TG", year: "2nd Year" },
+  { name: "Nireeksha H N", initials: "NH", year: "2nd Year" },
+  { name: "Inchara Praveen Shetty", initials: "IPS", year: "2nd Year" },
+  { name: "Akanksha", initials: "AK", year: "2nd Year" },
+  { name: "Prarthana K M", initials: "PKM", year: "2nd Year" },
+  { name: "Sriraksha G Kumar", initials: "SGK", year: "2nd Year" },
 ];
 
 /* ✅ PHOTO MAP */
 const photoMap: Record<string, string> = {
   "Tarun T R": tarunImg,
-  // "M Pratham Gowda": prathamImg,
-  // "Omair Hamza Abdul Hameed": omairImg,
-  // "Monish D S": monishImg,
-  // "Krupa Sinchana C": krupaImg,
-  // "Amrutha H N": amruthaHNImg,
-  // "S Anagha": anaghaImg,
-  // "Thanya Gowda": thanyaImg,
-  // "Nireeksha H N": nireekshaImg,
-  // "Inchara Praveen Shetty": incharaImg,
-  // "Akanksha": akankshaImg,
-  // "Prarthana K M": prarthanaImg,
-  // "Sriraksha G Kumar": srirakshaImg,
+  "M Pratham Gowda": prathamImg,
+  "Omair Hamza Abdul Hameed": omairImg,
+  "Monish D S": monishImg,
+  "Krupa Sinchana C": krupaImg,
+  "Amrutha H N": amruthaHNImg,
+  "S Anagha": anaghaImg,
+  "Thanya Gowda": thanyaImg,
+  "Nireeksha H N": nireekshaImg,
+  "Inchara Praveen Shetty": incharaImg,
+  "Akanksha": akankshaImg,
+  "Prarthana K M": prarthanaImg,
+  "Sriraksha G Kumar": srirakshaImg,
+  "Mahadesh L M": MahadeshImg,
+  "Impana D": ImpanaImg,
+  "Manoj S": ManojImg,
+  "Sinchana M L": SinchanaImg,
+  "Abhishek Gowda B P": AbhishekImg,
+  "Ullas G": UllasImg,
+  "Janapriya": JanapriyaImg,
+  "Ankitha Shetty P": AnkithaImg,
+  "Trupthi M": TrupthiImg,
+  "Bhuvan": bhuvanImg,
+  "Kushal Gowda SP": kushalImg,
+  "Amruth R L": amruthImg,
+  "Kaphianthailiu Kamson": phianImg,
+  "Rahul Kothwal": rahulImg,
+  "Amrutha J S": amrutha2Img,
+  "Chaithanya": chaithanyaImg,
+  "Apoorva H U": ApoorvaImg,
 };
 
 const TeamSection = () => {

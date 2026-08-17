@@ -4,19 +4,19 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    text: "Science Association transformed my college experience. The hackathons and workshops gave me real-world skills that landed me my dream job.",
-    name: "Vikram K.",
-    batch: "Batch of 2022",
+    text: "Being part of Science Association has given me a chance to participate in events that I would never have experienced otherwise. It really helped me become more confident",
+    name: "Mahadesh L M",
+    batch: "Batch of 2026",
   },
   {
-    text: "Being part of the research wing opened doors I never imagined. The mentorship and resources are world-class for a college club.",
-    name: "Divya R.",
-    batch: "Batch of 2023",
+    text: "The events organized by Science Association are not just about competitions. They give us a chance to learn, work as a team, and actually enjoy college life",
+    name: "Tara B R",
+    batch: "Batch of 2025",
   },
   {
-    text: "The events conducted by SA rival national tech fests. The scale, quality, and professionalism are unmatched in our region.",
-    name: "Arjun M.",
-    batch: "Batch of 2021",
+    text: "I joined the association just to participate in an event, but ended up getting involved in organizing activities too. It helped me improve my communication and leadership skills",
+    name: "Varun .",
+    batch: "Batch of 2017",
   },
 ];
 

@@ -6,10 +6,11 @@ import sponsorDreamsville from "@/assets/sponsor-dreamsville.png";
 import sponsorHometown from "@/assets/sponsor-hometown.png";
 
 const sponsors = [
-  { name: "Target Pre-University College", image: sponsorTarget },
+    { name: "Target Pre-University College", image: sponsorTarget },
   { name: "The Ashok Hassan", image: sponsorAshok },
   { name: "Dreamsville", image: sponsorDreamsville },
   { name: "Hometown Cafe", image: sponsorHometown },
+
 ];
 
 const SponsorsSection = () => {
@@ -43,11 +44,8 @@ const SponsorsSection = () => {
               transition={{ duration: 0.4, delay: i * 0.1 }}
               className="flex items-center justify-center p-4 rounded-xl border border-border bg-card/30 hover:border-primary/30 transition-all duration-500 group overflow-hidden"
             >
-              <img
-                src={sponsor.image}
-                alt={sponsor.name}
-                className="w-full h-auto rounded-lg object-contain max-h-60"
-              />
+              
+              
             </motion.div>
           ))}
         </div>

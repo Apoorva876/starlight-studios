@@ -1,73 +1,113 @@
-# Welcome to your Lovable project
+# 🚀 Science Association – MCE Hassan
 
-## Project info
+A modern, responsive web application built for the **Science Association of Malnad College of Engineering, Hassan**.
+This platform showcases innovation, events, and technical excellence with a futuristic UI experience.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## 🌐 Tech Stack
 
-There are several ways of editing your application.
+* ⚡ **Vite** – Fast build tool
+* ⚛️ **React** – Frontend library
+* 🟦 **TypeScript** – Type safety
+* 🎨 **Tailwind CSS** – Utility-first styling
+* 🧩 **shadcn/ui** – Reusable UI components
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## ✨ Features
 
-Changes made via Lovable will be committed automatically to this repo.
+* 🎯 Modern and responsive UI
+* 🌌 Futuristic design (Orbitron + Space Grotesk fonts)
+* 🎞️ Smooth animations and transitions
+* 🧱 Component-based architecture
+* 📱 Mobile-friendly layout
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 📦 Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 1. Clone the repository
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+```bash
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 2. Install dependencies
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
+```
+
+### 3. Run development server
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+👉 Open in browser:
+`http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 🛠️ Build for Production
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run build
+```
 
-## What technologies are used for this project?
+### Preview build
 
-This project is built with:
+```bash
+npm run preview
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+## 📁 Project Structure
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+```
+src/
+ ├── components/   # Reusable UI components
+ ├── pages/        # Page-level components
+ ├── assets/       # Images, icons, etc.
+ ├── styles/       # Global styles
+ └── main.tsx      # Entry point
+```
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## 🎨 Customization
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+* Update **colors & theme** → `tailwind.config.ts`
+* Modify **fonts** → `index.html` / Tailwind config
+* Replace **favicon** → `public/favicon.ico`
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+
+## 🚀 Deployment
+
+You can deploy this project using:
+
+* 🌐 Vercel
+* 🌐 Netlify
+* 🌐 GitHub Pages
+
+---
+
+## 🤝 Contributing
+
+Feel free to fork the project and contribute improvements!
+
+---
+
+## 📌 Author
+
+Developed by **Kushal Prakash** 🚀
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
