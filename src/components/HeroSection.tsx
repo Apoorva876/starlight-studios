@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Rocket, Users } from "lucide-react";
 import bgHome from "@/assets/bg-home.png";
 import saLogoWhite from "@/assets/sa-logo-white.png";
+import GalaxyWave from "./GalaxyWave";
 
 const HeroSection = () => {
   return (
@@ -22,11 +23,26 @@ const HeroSection = () => {
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-[1]" />
 
+      {/* Galaxy circular wave */}
+      <GalaxyWave />
+
       {/* Orbital rings */}
       <div className="absolute inset-0 flex items-center justify-center z-[1] pointer-events-none">
-        <div className="w-[600px] h-[600px] rounded-full border border-primary/5 animate-[spin_60s_linear_infinite]" />
-        <div className="absolute w-[400px] h-[400px] rounded-full border border-secondary/10 animate-[spin_40s_linear_infinite_reverse]" />
-        <div className="absolute w-[800px] h-[800px] rounded-full border border-neon-blue/5 animate-[spin_80s_linear_infinite]" />
+        <motion.div
+          className="w-[600px] h-[600px] rounded-full border border-primary/5"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.div
+          className="absolute w-[400px] h-[400px] rounded-full border border-secondary/10"
+          animate={{ rotate: -360 }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.div
+          className="absolute w-[800px] h-[800px] rounded-full border border-neon-blue/5"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+        />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 text-center">
