@@ -1,6 +1,14 @@
+@font-face {
+  font-family: "Megatron";
+  src: url("/fonts/Megatron.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 @layer base {
   :root {
@@ -61,6 +69,7 @@
 @layer base {
   * {
     @apply border-border;
+    cursor: none !important;
   }
 
   body {

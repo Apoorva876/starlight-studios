@@ -30,15 +30,13 @@ const AboutSection = () => {
               <span className="text-primary glow-text">Innovation</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Science Association is the premier technical club of Malnad College of Engineering, Hassan. 
-              We are a community of passionate engineers, researchers, and innovators dedicated to pushing 
-              the boundaries of science and technology.
+             The Science Association of Malnad College of Engineering, Hassan is 
+             a student-led academic organization dedicated to promoting scientific 
+             knowledge and technological awareness.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              From hosting national-level hackathons to conducting cutting-edge research workshops, 
-              we provide a platform for students to explore, experiment, and excel in the world of 
-              science and engineering. Our mission is to cultivate a culture of innovation that 
-              transforms ideas into impact.
+             We provide a platform for students to explore science beyond classrooms through 
+             learning-focused activities, discussions, and technical exposure.
             </p>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -67,10 +65,10 @@ const AboutSection = () => {
             <div className="card-space p-8 rounded-2xl border border-border">
               <div className="grid grid-cols-2 gap-6">
                 {[
-                  { value: "500+", label: "Members" },
-                  { value: "50+", label: "Events Conducted" },
+                  { value: "50+", label: "Members" },
+                  { value: "10+", label: "Events Conducted" },
                   { value: "15+", label: "Years of Legacy" },
-                  { value: "20+", label: "Awards Won" },
+                  { value: "0+", label: "Awards Won" },
                 ].map((stat, i) => (
                   <div key={stat.label} className="text-center p-4">
                     <p className="font-heading text-3xl md:text-4xl font-bold text-primary glow-text mb-2">

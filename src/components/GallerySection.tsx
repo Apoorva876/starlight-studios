@@ -1,20 +1,56 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
-import { X } from "lucide-react";
 
-const images = [
-  { id: 1, alt: "Hackathon event with participants coding", gradient: "from-neon-cyan/20 to-neon-purple/20" },
-  { id: 2, alt: "Workshop on robotics", gradient: "from-neon-purple/20 to-neon-blue/20" },
-  { id: 3, alt: "Technical talk by industry expert", gradient: "from-neon-blue/20 to-neon-cyan/20" },
-  { id: 4, alt: "Team building and networking event", gradient: "from-neon-cyan/20 to-secondary/20" },
-  { id: 5, alt: "Award ceremony celebration", gradient: "from-secondary/20 to-neon-purple/20" },
-  { id: 6, alt: "Innovation lab prototyping session", gradient: "from-neon-purple/20 to-neon-cyan/20" },
+const galleryData = [
+  {
+    title: "SCIENTIA",
+    images: [
+      { id: 1, src: "/gallery/scientia1.jpg", alt: "SCIENTIA event photo 1" },
+      { id: 2, src: "/gallery/scientia2.jpg", alt: "SCIENTIA event photo 2" },
+      { id: 3, src: "/gallery/scientia3.JPG", alt: "SCIENTIA event photo 3" },
+    ],
+  },
+  {
+    title: "Orientation & Freshers",
+    images: [
+      { id: 4, src: "/gallery/orientation1.jpg", alt: "Orientation photo 1" },
+      { id: 5, src: "/gallery/orientation2.jpg", alt: "Orientation photo 2" },
+      { id: 6, src: "/gallery/orientation3.jpg", alt: "Orientation photo 3" },
+    ],
+  },
+  {
+    title: "Farewell",
+    images: [
+      { id: 7, src: "/gallery/farewell1.jpg", alt: "Farewell photo 1" },
+      { id: 8, src: "/gallery/farewell2.jpg", alt: "Farewell photo 2" },
+      { id: 9, src: "/gallery/farewell3.jpg", alt: "Farewell photo 3" },
+    ],
+  },
 ];
 
 const GallerySection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
-  const [lightbox, setLightbox] = useState<number | null>(null);
+
+  const [activeGallery, setActiveGallery] = useState<number | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number>(0);
+  const [direction, setDirection] = useState(0);
+
+  const nextImage = () => {
+    if (activeGallery === null) return;
+    setDirection(1);
+    setLightboxIndex((prev) => (prev + 1) % galleryData[activeGallery].images.length);
+  };
+
+  const prevImage = () => {
+    if (activeGallery === null) return;
+    setDirection(-1);
+    setLightboxIndex(
+      (prev) =>
+        (prev - 1 + galleryData[activeGallery].images.length) %
+        galleryData[activeGallery].images.length
+    );
+  };
 
   return (
     <section id="gallery" className="relative py-24 lg:py-32 z-10">
@@ -22,44 +58,98 @@ const GallerySection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-primary font-heading text-xs tracking-[0.3em] uppercase mb-4">Gallery</p>
+          <p className="text-primary font-heading text-xs tracking-[0.3em] uppercase mb-4">
+            Gallery
+          </p>
           <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground">
             Captured <span className="text-secondary glow-text-purple">Moments</span>
           </h2>
         </motion.div>
 
-        <div ref={ref} className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-          {images.map((img, i) => (
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {galleryData.map((gallery, i) => (
             <motion.button
-              key={img.id}
+              key={i}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              onClick={() => setLightbox(i)}
-              className={`aspect-[4/3] rounded-xl bg-gradient-to-br ${img.gradient} border border-border overflow-hidden group relative`}
+              onClick={() => {
+                setActiveGallery(i);
+                setLightboxIndex(0);
+              }}
+              className="aspect-[4/3] rounded-2xl border border-border overflow-hidden group relative"
             >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-heading text-xs text-muted-foreground tracking-wider text-center px-4">{img.alt}</span>
+              <img
+                src={gallery.images[0].src}
+                alt={gallery.title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                <span className="font-heading text-white text-xl tracking-wider text-center px-4">
+                  {gallery.title}
+                </span>
               </div>
-              <div className="absolute inset-0 bg-background/0 group-hover:bg-background/30 transition-colors duration-300" />
             </motion.button>
           ))}
         </div>
 
-        {/* Lightbox */}
-        {lightbox !== null && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/90 backdrop-blur-sm" onClick={() => setLightbox(null)}>
-            <button className="absolute top-6 right-6 text-foreground hover:text-primary transition-colors" onClick={() => setLightbox(null)}>
-              <X size={32} />
-            </button>
-            <div className={`w-full max-w-3xl aspect-video rounded-2xl bg-gradient-to-br ${images[lightbox].gradient} border border-border flex items-center justify-center mx-4`}>
-              <span className="font-heading text-sm text-muted-foreground">{images[lightbox].alt}</span>
+        <AnimatePresence initial={false} custom={direction}>
+          {activeGallery !== null && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+              onClick={() => setActiveGallery(null)}
+            >
+              <button
+                className="absolute left-6 text-white text-4xl"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prevImage();
+                }}
+              >
+                ◀
+              </button>
+
+              <motion.div
+                onClick={(e) => e.stopPropagation()}
+                key={lightboxIndex}
+                initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
+                transition={{ duration: 0.4 }}
+                className="w-full max-w-5xl max-h-[80vh] rounded-2xl border border-border mx-4 overflow-hidden bg-black"
+              >
+                <img
+                  src={galleryData[activeGallery].images[lightboxIndex].src}
+                  alt={galleryData[activeGallery].images[lightboxIndex].alt}
+                  className="w-full h-full max-h-[80vh] object-contain"
+                />
+              </motion.div>
+
+              <button
+                className="absolute right-6 text-white text-4xl"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  nextImage();
+                }}
+              >
+                ▶
+              </button>
+
+              <button
+                className="absolute top-6 right-8 text-white text-4xl"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveGallery(null);
+                }}
+              >
+                ×
+              </button>
             </div>
-          </div>
-        )}
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

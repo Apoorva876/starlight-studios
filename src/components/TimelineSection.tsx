@@ -2,8 +2,8 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const milestones = [
-  { year: "2015", title: "Club Founded", desc: "Science Association established at Malnad College of Engineering." },
-  { year: "2012", title: "First Scientia Event", desc: "Hosted our first inter-college technical symposium with 500+ participants." },
+  { year: "2013", title: "Club Founded", desc: "Science Association established at Malnad College of Engineering." },
+  { year: "2015", title: "First Scientia Event", desc: "Hosted our first inter-college technical symposium with 500+ participants." },
   { year: "2015", title: "Research Wing", desc: "Launched dedicated research wing with student-led projects and publications." },
   { year: "2018", title: "National Recognition", desc: "Won Best Technical Club award at a national-level tech fest." },
   { year: "2024", title: "MBR", desc: "Introduced new event named 'Malnad Book Of Records'" },
@@ -11,7 +11,7 @@ const milestones = [
 ];
 
 const TimelineSection = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
@@ -35,7 +35,7 @@ const TimelineSection = () => {
 
           {milestones.map((m, i) => (
             <motion.div
-              key={m.year}
+              key={`${m.year}-${i}`}
               initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.15 }}

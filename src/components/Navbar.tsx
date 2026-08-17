@@ -40,13 +40,27 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between py-4 px-4 lg:px-8">
-        <button onClick={() => handleClick("/")} className="flex items-center gap-2 font-heading text-lg font-bold tracking-wider text-primary glow-text">
-          <img src={saLogo} alt="SA Logo" className="w-8 h-8 object-contain" />
-          Science Association
-        </button>
+        <button
+  onClick={() => handleClick("/")}
+  className="flex items-center gap-2 shrink-0"
+>
+  <img
+    src={saLogo}
+    alt="Science Association"
+    className="w-12 h-12 sm:w-13 sm:h-13 md:w-14 md:h-14 object-contain"
+  />
+
+  <span
+    style={{ fontFamily: "Megatron, sans-serif" }}
+    className="text-primary text-sm sm:text-base md:text-lg leading-[0.9] tracking-tight"
+  >
+    Science<br />
+    Association
+  </span>
+</button>
 
         {/* Desktop */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-5 lg:gap-7">
           {navLinks.map((link) => (
             <li key={link.href}>
               <button
